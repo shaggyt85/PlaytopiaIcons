@@ -1,0 +1,88 @@
+{
+  "name": "@playtopia/icons",
+  "version": "1.0.0",
+  "description": "Librería de iconos oficiales Playtopia para React, React Native, Expo y Next.js",
+  "author": "Playtopia Team",
+  "license": "UNLICENSED",
+  "main": "./dist/react/index.cjs",
+  "module": "./dist/react/index.js",
+  "types": "./dist/react/index.d.ts",
+  "exports": {
+    "./react": {
+      "import": "./dist/react/index.js",
+      "require": "./dist/react/index.cjs",
+      "types": "./dist/react/index.d.ts"
+    },
+    "./react-native": {
+      "import": "./dist/react-native/index.js",
+      "require": "./dist/react-native/index.cjs",
+      "types": "./dist/react-native/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "src/svg"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "clean": "rimraf dist",
+    "svgo": "svgo -f src/svg -o src/svg --config svgo.config.js",
+    "generate": "node scripts/generate-icons.mjs",
+    "build:react": "tsup --config tsup.config.ts",
+    "build": "npm run clean && npm run svgo && npm run generate && npm run build:react",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "icons",
+    "playtopia",
+    "react",
+    "react-native",
+    "expo",
+    "nextjs",
+    "svg",
+    "ui",
+    "icon-library",
+    "design-system"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaggyt85/PlaytopiaIcons.git"
+  },
+  "homepage": "https://github.com/shaggyt85/PlaytopiaIcons#readme",
+  "bugs": {
+    "url": "https://github.com/shaggyt85/PlaytopiaIcons/issues"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-native": ">=0.64.0",
+    "react-native-svg": ">=12.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react-native": {
+      "optional": true
+    },
+    "react-native-svg": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^25.5.2",
+    "@types/react": "^18.3.28",
+    "@types/react-dom": "^19.2.3",
+    "@types/react-native": "^0.72.0",
+    "jsdom": "^29.0.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-native-svg": "^15.15.4",
+    "rimraf": "^5.0.10",
+    "svgo": "^3.3.3",
+    "tsup": "^7.2.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.2"
+  }
+}
