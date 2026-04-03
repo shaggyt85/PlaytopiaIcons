@@ -19,7 +19,7 @@ export const IconWarning: React.FC<IconWarningProps> = ({
     fill="none"
     {...props}
   >
-    <Path fill="currentColor" d="m40-120 440-760 440 760H40Zm139-80h602L480-720 179-200Zm261-40h80v-80h80v-80h-80v-80h-80v80h-80v80h80v80Zm40-120Z"/>
+    <Path fill="currentColor" d="m40-120 440-760 440 760zm139-80h602L480-720zm261-40h80v-80h80v-80h-80v-80h-80v80h-80v80h80zm40-120"/>
   </Svg>
 );
 

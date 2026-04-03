@@ -18,7 +18,7 @@ export const IconCaretDown: React.FC<IconCaretDownProps> = ({
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path fillRule="evenodd" clipRule="evenodd" d="M4 5L0 0L8 0L4 5Z" fill="currentColor"/>
+    <path fill="currentColor" fillRule="evenodd" d="M4 5 0 0h8z" clipRule="evenodd"/>
   </svg>
 );
 

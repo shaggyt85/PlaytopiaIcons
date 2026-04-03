@@ -19,7 +19,7 @@ export const IconCaretDown: React.FC<IconCaretDownProps> = ({
     fill="none"
     {...props}
   >
-    <Path fillRule="evenodd" clipRule="evenodd" d="M4 5L0 0L8 0L4 5Z" fill="currentColor"/>
+    <Path fill="currentColor" fillRule="evenodd" d="M4 5 0 0h8z" clipRule="evenodd"/>
   </Svg>
 );
 
