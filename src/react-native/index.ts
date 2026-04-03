@@ -1,4 +1,38 @@
+export { IconAccountCircle } from './IconAccountCircle';
+export { IconAddCircle } from './IconAddCircle';
+export { IconCamera } from './IconCamera';
+export { IconClose } from './IconClose';
+export { IconCourt } from './IconCourt';
+export { IconEmail } from './IconEmail';
+export { IconFemale } from './IconFemale';
 export { IconHome } from './IconHome';
+export { IconIdCard } from './IconIdCard';
+export { IconLocation } from './IconLocation';
+export { IconLock } from './IconLock';
+export { IconMale } from './IconMale';
+export { IconMessage } from './IconMessage';
+export { IconMoney } from './IconMoney';
+export { IconPhone } from './IconPhone';
+export { IconRole } from './IconRole';
+export { IconVisibilityOff } from './IconVisibilityOff';
+export { IconVisibility } from './IconVisibility';
 
 // Types
+export type { IconAccountCircleProps } from './IconAccountCircle';
+export type { IconAddCircleProps } from './IconAddCircle';
+export type { IconCameraProps } from './IconCamera';
+export type { IconCloseProps } from './IconClose';
+export type { IconCourtProps } from './IconCourt';
+export type { IconEmailProps } from './IconEmail';
+export type { IconFemaleProps } from './IconFemale';
 export type { IconHomeProps } from './IconHome';
+export type { IconIdCardProps } from './IconIdCard';
+export type { IconLocationProps } from './IconLocation';
+export type { IconLockProps } from './IconLock';
+export type { IconMaleProps } from './IconMale';
+export type { IconMessageProps } from './IconMessage';
+export type { IconMoneyProps } from './IconMoney';
+export type { IconPhoneProps } from './IconPhone';
+export type { IconRoleProps } from './IconRole';
+export type { IconVisibilityOffProps } from './IconVisibilityOff';
+export type { IconVisibilityProps } from './IconVisibility';

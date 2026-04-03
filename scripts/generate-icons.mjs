@@ -42,11 +42,11 @@ function parseSvg(svgContent) {
   const viewBoxMatch = attrs.match(/viewBox="([^"]*)"/);
   const viewBox = viewBoxMatch ? viewBoxMatch[1] : "0 0 24 24";
 
-  // Extraer width y height (defaults a 24)
+  // Extraer width y height (defaults a 24), eliminando unidades "px"
   const widthMatch = attrs.match(/width="([^"]*)"/);
   const heightMatch = attrs.match(/height="([^"]*)"/);
-  const width = widthMatch ? widthMatch[1] : "24";
-  const height = heightMatch ? heightMatch[1] : "24";
+  const width = widthMatch ? widthMatch[1].replace(/px$/, "") : "24";
+  const height = heightMatch ? heightMatch[1].replace(/px$/, "") : "24";
 
   // Extraer contenido interior
   const innerMatch = svgContent.match(/<svg[^>]*>([\s\S]*)<\/svg>/);
