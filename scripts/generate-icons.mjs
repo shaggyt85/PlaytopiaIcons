@@ -32,6 +32,28 @@ function svgFileToComponentName(filename) {
     .join("");
 }
 
+/**
+ * Normaliza el inner SVG: si el root tiene fill="X" y algún shape no tiene
+ * fill ni stroke explícito, añade fill="X" directamente en ese shape.
+ * Así el generador puede poner fill="none" en el root sin romper la herencia.
+ */
+function normalizeFillInheritance(inner, rootFill) {
+  if (!rootFill || rootFill === "none") return inner;
+
+  const SHAPES = "path|circle|rect|ellipse|polygon|polyline|line";
+  return inner.replace(
+    new RegExp(`<(${SHAPES})(\\s[^/=>\\s][^>]*)?(\\s*/?>)`, "g"),
+    (match, tag, attrsStr = "", close) => {
+      const hasFill = /fill="/.test(attrsStr);
+      const hasStroke = /stroke="/.test(attrsStr);
+      if (!hasFill && !hasStroke) {
+        return `<${tag} fill="${rootFill}"${attrsStr}${close}`;
+      }
+      return match;
+    },
+  );
+}
+
 /** Extrae el contenido interior del <svg> y sus atributos */
 function parseSvg(svgContent) {
   // Extraer atributos del tag <svg>
@@ -48,9 +70,14 @@ function parseSvg(svgContent) {
   const width = widthMatch ? widthMatch[1].replace(/px$/, "") : "24";
   const height = heightMatch ? heightMatch[1].replace(/px$/, "") : "24";
 
-  // Extraer contenido interior
+  // Extraer fill del root (para normalizar herencia)
+  const rootFillMatch = attrs.match(/fill="([^"]*)"/);
+  const rootFill = rootFillMatch ? rootFillMatch[1] : null;
+
+  // Extraer contenido interior y normalizar fill heredado del root
   const innerMatch = svgContent.match(/<svg[^>]*>([\s\S]*)<\/svg>/);
-  const inner = innerMatch ? innerMatch[1].trim() : "";
+  const rawInner = innerMatch ? innerMatch[1].trim() : "";
+  const inner = normalizeFillInheritance(rawInner, rootFill);
 
   return { viewBox, width, height, inner };
 }
