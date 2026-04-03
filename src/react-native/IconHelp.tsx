@@ -1,0 +1,26 @@
+import * as React from 'react';
+import Svg, { Path } from 'react-native-svg';
+import type { SvgProps } from 'react-native-svg';
+
+export interface IconHelpProps extends SvgProps {
+  size?: number;
+}
+
+export const IconHelp: React.FC<IconHelpProps> = ({
+  size,
+  width = 20,
+  height = 21,
+  ...props
+}) => (
+  <Svg
+    width={size ?? width}
+    height={size ?? height}
+    viewBox="0 0 20 21"
+    fill="none"
+    {...props}
+  >
+    <Path fillRule="evenodd" clipRule="evenodd" d="M12.5 10.5C12.5 11.8811 11.3811 13 10 13C8.62057 13 7.5 11.8811 7.5 10.5C7.5 9.11891 8.62057 8 10 8C11.3794 7.99833 12.4983 9.11557 12.5 10.4933V10.5ZM15.6287 12.3575H15.6237C14.5879 12.3575 13.7487 11.5183 13.7487 10.4825C13.7487 9.44668 14.5879 8.6075 15.6237 8.6075C16.6596 8.6075 17.4987 9.44668 17.4987 10.4825C17.5 11.5171 16.6633 12.3562 15.6287 12.3575ZM2.5 10.4875C2.50125 11.5221 3.34043 12.3587 4.375 12.3575C5.40957 12.3575 6.25 11.5183 6.25 10.4825C6.25 9.44668 5.40957 8.6075 4.375 8.6075C3.33918 8.6075 2.5 9.44668 2.5 10.4825V10.4875Z" fill="currentColor"/>
+  </Svg>
+);
+
+IconHelp.displayName = 'IconHelp';

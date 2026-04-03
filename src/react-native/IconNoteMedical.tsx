@@ -1,0 +1,26 @@
+import * as React from 'react';
+import Svg, { Path } from 'react-native-svg';
+import type { SvgProps } from 'react-native-svg';
+
+export interface IconNoteMedicalProps extends SvgProps {
+  size?: number;
+}
+
+export const IconNoteMedical: React.FC<IconNoteMedicalProps> = ({
+  size,
+  width = 16,
+  height = 16,
+  ...props
+}) => (
+  <Svg
+    width={size ?? width}
+    height={size ?? height}
+    viewBox="0 0 16 16"
+    fill="none"
+    {...props}
+  >
+    <Path fillRule="evenodd" clipRule="evenodd" d="M12.6667 0H3.33333C1.49533 0 0 1.49533 0 3.33333V12.6667C0 14.5047 1.49533 16 3.33333 16H10.3433C10.4377 16 10.531 15.9935 10.6241 15.987H10.6242L10.6667 15.984V12.6667C10.6667 11.564 11.564 10.6667 12.6667 10.6667H15.984L15.987 10.6242V10.6241C15.9935 10.531 16 10.4377 16 10.3433V3.33333C16 1.49533 14.5047 0 12.6667 0ZM10.6667 8.66667H8.66667V10.6667C8.66667 11.0353 8.368 11.3333 8 11.3333C7.632 11.3333 7.33333 11.0353 7.33333 10.6667V8.66667H5.33333C4.96533 8.66667 4.66667 8.36867 4.66667 8C4.66667 7.63133 4.96533 7.33333 5.33333 7.33333H7.33333V5.33333C7.33333 4.96467 7.632 4.66667 8 4.66667C8.368 4.66667 8.66667 4.96467 8.66667 5.33333V7.33333H10.6667C11.0347 7.33333 11.3333 7.63133 11.3333 8C11.3333 8.36867 11.0347 8.66667 10.6667 8.66667ZM15.6933 12H12.6667V12.0007C12.2987 12.0007 12 12.3 12 12.6673V15.694C12.6087 15.4627 13.1687 15.1073 13.6433 14.6333L14.6327 13.6433C15.1067 13.1693 15.462 12.6087 15.6933 12Z" fill="currentColor"/>
+  </Svg>
+);
+
+IconNoteMedical.displayName = 'IconNoteMedical';
