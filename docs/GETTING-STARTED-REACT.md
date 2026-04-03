@@ -163,6 +163,28 @@ Abre `http://localhost:6006` → **Icons/Gallery**
 
 ---
 
+## Logos de marca
+
+Para los logos de Playtopia (con gradiente de marca), usa el import `/brand`:
+
+```tsx
+import { LogoHorizontal, LogoHorizontalSmall } from '@playtopia/icons/brand';
+
+// Logo completo (233x116 por defecto)
+<LogoHorizontal width={200} />
+
+// Logo compacto para headers y navbars (244x28 por defecto)
+<LogoHorizontalSmall width={140} />
+
+// En fondos oscuros — cambia el color del texto
+<LogoHorizontalSmall width={140} textColor="#fff" />
+```
+
+> Los componentes de `/brand` **no aceptan `color`** porque el gradiente de marca es fijo.
+> Solo aceptan `width`, `height`, `textColor`, `className` y `style`.
+
+---
+
 ## Versión instalada
 
 Consulta la versión actual del paquete en tu proyecto:

@@ -32,11 +32,15 @@ El archivo `.npmrc` del repositorio incluye `legacy-peer-deps=true` para evitar 
 
 ## 2. Añadir un nuevo icono
 
-El flujo completo es:
+El flujo varía según el tipo de asset:
+
+**Icono de UI** (monocromático, controlado por props):
 
 ```
 Diseñador exporta SVG → src/svg/ → npm run generate → src/react/ + src/react-native/ → npm run build
 ```
+
+**Logo / marca** (gradiente fijo, no auto-generado) → ver sección [Añadir un logo de marca](#2b-añadir-un-logo-de-marca-brand-asset).
 
 ### Paso a paso
 
@@ -66,6 +70,31 @@ Esto genera automáticamente:
 - Actualiza `src/react-native/index.ts`
 
 > **NUNCA edites los archivos en `src/react/` y `src/react-native/` manualmente.** Son generados automáticamente. Los cambios manuales se perderán en la próxima ejecución de `npm run generate`.
+
+---
+
+## 2b. Añadir un logo de marca (brand asset)
+
+Los logos y assets corporativos (isologotipos, isotipo, wordmark) van en `src/brand/` y se crean **a mano, una sola vez**. No pasan por el pipeline de auto-generación.
+
+**¿Cuándo usar `src/brand/` en vez de `src/svg/`?**
+
+- El SVG usa gradientes de color de marca (`#E40066`, `#544997`)
+- El SVG usa máscaras (`<mask>`)
+- El color del asset **no** debe ser configurable por el consumidor
+- Es un logo, isologotipo o wordmark (no un icono de UI)
+
+**Paso a paso:**
+
+1. Convierte el SVG a JSX (puedes usar [svg2jsx.com](https://svg2jsx.com))
+2. Crea `src/brand/LogoNuevo.tsx` siguiendo la estructura de `LogoHorizontal.tsx`:
+   - Props: `width`, `height`, `textColor` (si aplica), `className`, `style`
+   - IDs únicos prefijados con `playtopia-logo-{nombre}-` para evitar conflictos
+   - `aria-label` y `role="img"` para accesibilidad
+3. Expórtalo en `src/brand/index.ts`
+4. Compila y verifica: `npm run build && npm test`
+
+> A diferencia de `src/react/` y `src/react-native/`, los archivos de `src/brand/` **sí se editan y commitean directamente**.
 
 **d) Verifica el resultado en Storybook**
 

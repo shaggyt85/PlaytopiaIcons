@@ -29,4 +29,18 @@ export default defineConfig([
     shims: false,
     sourcemap: true,
   },
+  // Build para Brand assets (logos, no auto-generados)
+  {
+    entry: ['src/brand/index.ts'],
+    outDir: 'dist/brand',
+    format: ['esm', 'cjs'],
+    dts: true,
+    minify: true,
+    clean: false,
+    target: 'es2019',
+    external: ['react'],
+    splitting: false,
+    shims: false,
+    sourcemap: true,
+  },
 ]);

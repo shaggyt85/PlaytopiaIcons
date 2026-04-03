@@ -1,3 +1,3 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`React Icons > IconHome > snapshot 1`] = `"<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12L12 3L21 12" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 21V15H15V21" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21 21H3" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>"`;
+exports[`React Icons > IconHome > snapshot 1`] = `"<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#222" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m3 12 9-9 9 9M9 21v-6h6v6m6 0H3"></path></svg>"`;

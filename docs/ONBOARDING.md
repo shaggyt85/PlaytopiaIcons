@@ -34,14 +34,18 @@ La ventaja principal es que **hay una sola fuente de verdad**: los SVGs original
 @playtopia/icons/
 │
 ├── src/
-│   ├── svg/                   ← SVGs ORIGINALES (fuente de verdad)
+│   ├── svg/                   ← SVGs ORIGINALES de iconos de UI (fuente de verdad)
 │   │   └── icon-home.svg
 │   ├── react/                 ← Componentes para React/Next.js (AUTO-GENERADOS)
 │   │   ├── index.ts
 │   │   └── IconHome.tsx
-│   └── react-native/          ← Componentes para React Native/Expo (AUTO-GENERADOS)
+│   ├── react-native/          ← Componentes para React Native/Expo (AUTO-GENERADOS)
+│   │   ├── index.ts
+│   │   └── IconHome.tsx
+│   └── brand/                 ← Logos y marca (MANUALES, no auto-generados)
 │       ├── index.ts
-│       └── IconHome.tsx
+│       ├── LogoHorizontal.tsx
+│       └── LogoHorizontalSmall.tsx
 │
 ├── scripts/
 │   └── generate-icons.mjs     ← Script que convierte SVGs en componentes
@@ -60,6 +64,16 @@ La ventaja principal es que **hay una sola fuente de verdad**: los SVGs original
 > ⚠️ **Nunca edites los archivos de `src/react/` o `src/react-native/` manualmente.**
 > Estos archivos se generan automáticamente a partir de los SVGs de `src/svg/`.
 > Si editas un componente a mano, tu cambio se perderá la próxima vez que se ejecute `npm run generate`.
+
+### Brand assets (logos)
+
+> Los archivos de `src/brand/` son la excepción: se crean **manualmente** y sí se commitean directamente.
+> Úsalos cuando el SVG tenga gradientes de marca, máscaras o colores fijos (logos, isologotipos).
+>
+> | Tipo de asset               | Dónde va     | Cómo se genera                  |
+> | --------------------------- | ------------ | ------------------------------- |
+> | Icono de UI (monocromático) | `src/svg/`   | Automático (`npm run generate`) |
+> | Logo / marca corporativa    | `src/brand/` | Manual, una vez                 |
 
 ---
 
@@ -93,6 +107,13 @@ npm run build:storybook # Genera el sitio estático de Storybook
 | `icon-home.svg`         | `IconHome`          | `import { IconHome } from '@playtopia/icons/react'`        |
 | `icon-user-profile.svg` | `IconUserProfile`   | `import { IconUserProfile } from '@playtopia/icons/react'` |
 | `icon-arrow-left.svg`   | `IconArrowLeft`     | `import { IconArrowLeft } from '@playtopia/icons/react'`   |
+
+**Brand assets** (import separado):
+
+| Componente            | Import                                                         |
+| --------------------- | -------------------------------------------------------------- |
+| `LogoHorizontal`      | `import { LogoHorizontal } from '@playtopia/icons/brand'`      |
+| `LogoHorizontalSmall` | `import { LogoHorizontalSmall } from '@playtopia/icons/brand'` |
 
 ---
 
