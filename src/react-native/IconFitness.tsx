@@ -1,0 +1,26 @@
+import * as React from 'react';
+import Svg, { Path } from 'react-native-svg';
+import type { SvgProps } from 'react-native-svg';
+
+export interface IconFitnessProps extends SvgProps {
+  size?: number;
+}
+
+export const IconFitness: React.FC<IconFitnessProps> = ({
+  size,
+  width = 24,
+  height = 24,
+  ...props
+}) => (
+  <Svg
+    width={size ?? width}
+    height={size ?? height}
+    viewBox="0 0 47 48"
+    fill="none"
+    {...props}
+  >
+    <Path fill="currentColor" d="m36.37 11.2-6.671-6.673a2.35 2.35 0 0 0-3.335 0 2.35 2.35 0 0 0 0 3.313l4.98 4.981-19.026 19.031-4.98-4.98a2.348 2.348 0 0 0-4.007 1.667 2.35 2.35 0 0 0 .695 1.668l6.6 6.603 6.6 6.602a2.35 2.35 0 0 0 2.98.313 2.35 2.35 0 0 0 .356-3.626l-4.91-4.91L34.68 16.156l4.979 4.981a2.352 2.352 0 0 0 3.83-.776 2.35 2.35 0 0 0-.518-2.56zM4.026 36.833A2.358 2.358 0 1 0 .691 40.17l6.647 6.649a2.35 2.35 0 0 0 1.668.681 2.35 2.35 0 0 0 1.667-4.018zM46.306 7.84l-6.648-6.649a2.359 2.359 0 1 0-3.335 3.336l6.647 6.65a2.35 2.35 0 0 0 3.335 0 2.35 2.35 0 0 0 0-3.337"/>
+  </Svg>
+);
+
+IconFitness.displayName = 'IconFitness';
