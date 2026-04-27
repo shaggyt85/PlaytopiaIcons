@@ -8,3 +8,6 @@ export { LogoIsotipo } from './LogoIsotipo';
 export type { LogoIsotipoProps } from './LogoIsotipo';
 export { LogoHorizontalWhite } from './LogoHorizontalWhite';
 export type { LogoHorizontalWhiteProps } from './LogoHorizontalWhite';
+
+export { IconCheckCircleGradient } from './IconCheckCircleGradient';
+export type { IconCheckCircleGradientProps } from './IconCheckCircleGradient';
