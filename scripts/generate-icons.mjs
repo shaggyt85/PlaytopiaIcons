@@ -11,26 +11,11 @@
 
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const ROOT = path.resolve(__dirname, "..");
-
-const SVG_DIR = path.join(ROOT, "src", "svg");
-const REACT_DIR = path.join(ROOT, "src", "react");
-const RN_DIR = path.join(ROOT, "src", "react-native");
+import { svgFileToComponentName } from "./lib/naming.mjs";
+import { REACT_DIR, RN_DIR, SVG_DIR } from "./lib/paths.mjs";
 
 // ─── Utilidades ──────────────────────────────────────────
-
-/** Convierte "icon-home-filled.svg" → "IconHomeFilled" */
-function svgFileToComponentName(filename) {
-  return filename
-    .replace(/\.svg$/, "")
-    .split(/[-_]+/)
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
-    .join("");
-}
 
 /**
  * Normaliza el inner SVG: si el root tiene fill="X" y algún shape no tiene

@@ -5,10 +5,8 @@
  */
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const SVG_DIR = path.resolve(__dirname, "../src/svg");
+import { SVG_DIR } from "./lib/paths.mjs";
 
 const files = fs.readdirSync(SVG_DIR).filter((f) => f.endsWith(".svg"));
 let fixed = 0;

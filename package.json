@@ -1,32 +1,33 @@
 {
   "name": "@playtopia/icons",
-  "version": "1.7.4",
+  "version": "1.8.0",
   "description": "Librería de iconos oficiales Playtopia para React, React Native, Expo y Next.js",
   "author": "Playtopia Team",
   "license": "UNLICENSED",
-  "main": "./dist/react/index.cjs",
-  "module": "./dist/react/index.js",
+  "main": "./dist/react/index.js",
+  "module": "./dist/react/index.mjs",
   "types": "./dist/react/index.d.ts",
   "exports": {
     "./react": {
-      "import": "./dist/react/index.js",
-      "require": "./dist/react/index.cjs",
-      "types": "./dist/react/index.d.ts"
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/index.mjs",
+      "require": "./dist/react/index.js"
     },
     "./react-native": {
-      "import": "./dist/react-native/index.js",
-      "require": "./dist/react-native/index.cjs",
-      "types": "./dist/react-native/index.d.ts"
+      "types": "./dist/react-native/index.d.ts",
+      "import": "./dist/react-native/index.mjs",
+      "require": "./dist/react-native/index.js"
     },
     "./brand": {
-      "import": "./dist/brand/index.js",
-      "require": "./dist/brand/index.cjs",
-      "types": "./dist/brand/index.d.ts"
+      "types": "./dist/brand/index.d.ts",
+      "import": "./dist/brand/index.mjs",
+      "require": "./dist/brand/index.js"
     }
   },
   "files": [
     "dist",
-    "src/svg"
+    "src/svg",
+    "THIRD_PARTY_NOTICES.md"
   ],
   "sideEffects": false,
   "scripts": {

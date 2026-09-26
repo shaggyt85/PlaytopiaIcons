@@ -7,6 +7,24 @@ y este proyecto sigue [Semantic Versioning](https://semver.org/lang/es/).
 
 ---
 
+## [1.8.0] - 2026-09-26
+
+### Agregado
+
+- 45 iconos de trazo fino de Lucide (lucide-static 0.575.0) para Playtopia Pro, con el prefijo `lo` para distinguirlos: ficheros `icon-lo-*.svg` y componentes `IconLo*` (p. ej. `IconLoHome`, `IconLoCalendarDays`, `IconLoTrash2`). No sustituyen a ningún icono existente.
+- `THIRD_PARTY_NOTICES.md` con el aviso de licencia ISC de Lucide, incluido en el paquete.
+- Test que falla si un SVG trae un color fijo en lugar de `currentColor` (con una lista de excepciones justificadas).
+- Test que comprueba que `main`, `module`, `types` y cada ruta de `exports` existen en `dist`.
+
+### Corregido
+
+- `exports`, `main` y `module` apuntaban a ficheros inexistentes (`index.cjs`) o al formato equivocado: `import` ahora resuelve `index.mjs` (ESM), `require` resuelve `index.js` (CommonJS) y `types` va primero.
+- `IconHome` tenía el trazo fijo en `#222`: ahora usa `currentColor` y cambia con la prop `color`.
+
+### Cambiado
+
+- La regla de nombres (`scripts/lib/naming.mjs`) y las rutas (`scripts/lib/paths.mjs`) se definen una sola vez y las comparten el generador, `fix-svg-fills` y los tests.
+
 ## [1.0.0] - 2026-04-03
 
 ### Agregado

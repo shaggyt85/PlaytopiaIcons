@@ -19,7 +19,7 @@ export const IconHome: React.FC<IconHomeProps> = ({
     fill="none"
     {...props}
   >
-    <Path stroke="#222" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m3 12 9-9 9 9M9 21v-6h6v6m6 0H3"/>
+    <Path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m3 12 9-9 9 9M9 21v-6h6v6m6 0H3"/>
   </Svg>
 );
 
