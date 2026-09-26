@@ -17,9 +17,10 @@ export const IconLoCalendarDays: React.FC<IconLoCalendarDaysProps> = ({
     height={size ?? height}
     viewBox="0 0 24 24"
     fill="none"
+    strokeWidth={2}
     {...props}
   >
-    <Path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 2v4m8-4v4"/><Rect width="18" height="18" x="3" y="4" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" rx="2"/><Path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/>
+    <Path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="M8 2v4m8-4v4"/><Rect width="18" height="18" x="3" y="4" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" rx="2"/><Path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/>
   </Svg>
 );
 

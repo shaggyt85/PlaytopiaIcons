@@ -15,6 +15,7 @@ y este proyecto sigue [Semantic Versioning](https://semver.org/lang/es/).
 - `THIRD_PARTY_NOTICES.md` con el aviso de licencia ISC de Lucide, incluido en el paquete.
 - Test que falla si un SVG trae un color fijo en lugar de `currentColor` (con una lista de excepciones justificadas).
 - Test que comprueba que `main`, `module`, `types` y cada ruta de `exports` existen en `dist`.
+- Prop `strokeWidth` en los iconos de un solo grosor: el generador sube el `stroke-width` común de las formas al `<svg>` raíz como valor por defecto. Aplica a los 45 `IconLo*`, `IconHome`, `IconOvalClose` e `IconSchedule`; el aspecto por defecto no cambia.
 
 ### Corregido
 
@@ -24,6 +25,7 @@ y este proyecto sigue [Semantic Versioning](https://semver.org/lang/es/).
 ### Cambiado
 
 - La regla de nombres (`scripts/lib/naming.mjs`) y las rutas (`scripts/lib/paths.mjs`) se definen una sola vez y las comparten el generador, `fix-svg-fills` y los tests.
+- El onboarding documenta `fix-svg-fills.mjs` (arreglo retroactivo, fuera del build) y `generate-logo-base64.mjs`.
 
 ## [1.0.0] - 2026-04-03
 

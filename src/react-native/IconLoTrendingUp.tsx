@@ -17,9 +17,10 @@ export const IconLoTrendingUp: React.FC<IconLoTrendingUpProps> = ({
     height={size ?? height}
     viewBox="0 0 24 24"
     fill="none"
+    strokeWidth={2}
     {...props}
   >
-    <Path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7h6v6"/><Path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m22 7-8.5 8.5-5-5L2 17"/>
+    <Path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="M16 7h6v6"/><Path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="m22 7-8.5 8.5-5-5L2 17"/>
   </Svg>
 );
 

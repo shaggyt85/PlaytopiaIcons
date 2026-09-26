@@ -48,7 +48,10 @@ La ventaja principal es que **hay una sola fuente de verdad**: los SVGs original
 │       └── LogoHorizontalSmall.tsx
 │
 ├── scripts/
-│   └── generate-icons.mjs     ← Script que convierte SVGs en componentes
+│   ├── generate-icons.mjs     ← Script que convierte SVGs en componentes
+│   ├── fix-svg-fills.mjs      ← Arreglo puntual de SVG antiguos (ver abajo)
+│   └── lib/                   ← Regla de nombres y rutas, compartidas por scripts y tests
+├── generate-logo-base64.mjs   ← Pasa LogoHorizontalWhite a PNG en base64 para los emails de Core
 │
 ├── .storybook/                ← Config de Storybook (docs visual)
 ├── stories/                   ← Stories de Storybook
@@ -97,6 +100,16 @@ npm run test:watch     # Tests en modo watch
 npm run storybook      # Abre la documentación visual en localhost:6006
 npm run build:storybook # Genera el sitio estático de Storybook
 ```
+
+Scripts sin comando de npm, para casos puntuales:
+
+```bash
+node scripts/fix-svg-fills.mjs   # Reescribe en disco los SVG cuyas formas heredaban el fill del <svg> raíz
+node generate-logo-base64.mjs    # Genera logo-email-base64.txt y logo-email-preview.png (usa sharp)
+```
+
+- **`fix-svg-fills.mjs`** no forma parte del build: el generador ya normaliza esa herencia en memoria cada vez (`normalizeFillInheritance`). Se conserva para corregir de forma retroactiva SVG antiguos directamente en `src/svg/`.
+- **Grosor del trazo:** si todas las formas con trazo de un icono tienen el mismo `stroke-width`, el generador lo sube al `<svg>` raíz como valor por defecto. Así el icono acepta la prop `strokeWidth` (p. ej. `<IconLoHome strokeWidth={2.4} />`). Con grosores distintos por forma, cada una conserva el suyo.
 
 ---
 

@@ -49,15 +49,16 @@ export default function MyScreen() {
 
 Todos los iconos extienden las props de `react-native-svg` (`SvgProps`) y añaden `size`:
 
-| Prop                          | Tipo                   | Default | Descripción                  |
-| ----------------------------- | ---------------------- | ------- | ---------------------------- |
-| `size`                        | `number \| string`     | `24`    | Ancho y alto simultáneamente |
-| `width`                       | `number \| string`     | `24`    | Ancho del icono              |
-| `height`                      | `number \| string`     | `24`    | Alto del icono               |
-| `color`                       | `string`               | `#222`  | Color del trazo (stroke)     |
-| `fill`                        | `string`               | `none`  | Color de relleno             |
-| `style`                       | `StyleProp<ViewStyle>` | —       | Estilos del contenedor       |
-| ...cualquier prop de SvgProps |                        |         |                              |
+| Prop                          | Tipo                   | Default        | Descripción                                 |
+| ----------------------------- | ---------------------- | -------------- | ------------------------------------------- |
+| `size`                        | `number \| string`     | `24`           | Ancho y alto simultáneamente                |
+| `width`                       | `number \| string`     | `24`           | Ancho del icono                             |
+| `height`                      | `number \| string`     | `24`           | Alto del icono                              |
+| `color`                       | `string`               | `#222`         | Color del trazo (stroke)                    |
+| `strokeWidth`                 | `number`               | según el icono | Grosor del trazo (iconos de un solo grosor) |
+| `fill`                        | `string`               | `none`         | Color de relleno                            |
+| `style`                       | `StyleProp<ViewStyle>` | —              | Estilos del contenedor                      |
+| ...cualquier prop de SvgProps |                        |                |                                             |
 
 ---
 

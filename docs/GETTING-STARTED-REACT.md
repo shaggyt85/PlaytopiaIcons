@@ -30,16 +30,17 @@ export default function MyComponent() {
 
 Todos los iconos extienden `React.SVGProps<SVGSVGElement>` y añaden la prop `size`:
 
-| Prop                         | Tipo                | Default | Descripción                  |
-| ---------------------------- | ------------------- | ------- | ---------------------------- |
-| `size`                       | `number \| string`  | `24`    | Ancho y alto simultáneamente |
-| `width`                      | `number \| string`  | `24`    | Ancho del icono              |
-| `height`                     | `number \| string`  | `24`    | Alto del icono               |
-| `color`                      | `string`            | `#222`  | Color del trazo (stroke)     |
-| `className`                  | `string`            | —       | Clase CSS                    |
-| `style`                      | `CSSProperties`     | —       | Estilos inline               |
-| `onClick`                    | `MouseEventHandler` | —       | Evento de click              |
-| ...cualquier prop SVG nativa |                     |         |                              |
+| Prop                         | Tipo                | Default        | Descripción                                 |
+| ---------------------------- | ------------------- | -------------- | ------------------------------------------- |
+| `size`                       | `number \| string`  | `24`           | Ancho y alto simultáneamente                |
+| `width`                      | `number \| string`  | `24`           | Ancho del icono                             |
+| `height`                     | `number \| string`  | `24`           | Alto del icono                              |
+| `color`                      | `string`            | `#222`         | Color del trazo (stroke)                    |
+| `strokeWidth`                | `number`            | según el icono | Grosor del trazo (iconos de un solo grosor) |
+| `className`                  | `string`            | —              | Clase CSS                                   |
+| `style`                      | `CSSProperties`     | —              | Estilos inline                              |
+| `onClick`                    | `MouseEventHandler` | —              | Evento de click                             |
+| ...cualquier prop SVG nativa |                     |                |                                             |
 
 ---
 

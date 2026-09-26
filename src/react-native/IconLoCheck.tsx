@@ -17,9 +17,10 @@ export const IconLoCheck: React.FC<IconLoCheckProps> = ({
     height={size ?? height}
     viewBox="0 0 24 24"
     fill="none"
+    strokeWidth={2}
     {...props}
   >
-    <Path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 6 9 17l-5-5"/>
+    <Path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="M20 6 9 17l-5-5"/>
   </Svg>
 );
 

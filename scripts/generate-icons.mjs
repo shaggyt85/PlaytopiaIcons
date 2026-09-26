@@ -39,6 +39,26 @@ function normalizeFillInheritance(inner, rootFill) {
   );
 }
 
+/**
+ * Si todas las formas con trazo comparten el mismo stroke-width, lo quita de
+ * cada una y lo devuelve para ponerlo en el <svg> raíz como valor por defecto:
+ * así las formas lo heredan y la prop `strokeWidth` del icono lo sustituye.
+ * Con grosores distintos, o alguna forma con trazo sin grosor, no toca nada.
+ */
+function hoistStrokeWidth(inner) {
+  const SHAPES = "path|circle|rect|ellipse|polygon|polyline|line";
+  const shapes = [...inner.matchAll(new RegExp(`<(?:${SHAPES})\\b[^>]*>`, "g"))].map(
+    ([tag]) => tag,
+  );
+  const stroked = shapes.filter((tag) => /\sstroke="(?!none")/.test(tag));
+  const widths = new Set(stroked.map((tag) => tag.match(/stroke-width="([^"]*)"/)?.[1]));
+  const [strokeWidth] = widths;
+  if (stroked.length === 0 || widths.size !== 1 || strokeWidth === undefined) {
+    return { inner, strokeWidth: null };
+  }
+  return { inner: inner.replace(/\sstroke-width="[^"]*"/g, ""), strokeWidth };
+}
+
 /** Extrae el contenido interior del <svg> y sus atributos */
 function parseSvg(svgContent) {
   // Extraer atributos del tag <svg>
@@ -62,9 +82,11 @@ function parseSvg(svgContent) {
   // Extraer contenido interior y normalizar fill heredado del root
   const innerMatch = svgContent.match(/<svg[^>]*>([\s\S]*)<\/svg>/);
   const rawInner = innerMatch ? innerMatch[1].trim() : "";
-  const inner = normalizeFillInheritance(rawInner, rootFill);
+  const { inner, strokeWidth } = hoistStrokeWidth(
+    normalizeFillInheritance(rawInner, rootFill),
+  );
 
-  return { viewBox, width, height, inner };
+  return { viewBox, width, height, inner, strokeWidth };
 }
 
 /** Convierte atributos SVG a JSX (stroke-width → strokeWidth) */
@@ -132,8 +154,12 @@ function svgTagsToRN(content) {
 
 // ─── Generadores ─────────────────────────────────────────
 
+/** `strokeWidth` por defecto en el <svg> raíz, antes de {...props} para que se pueda cambiar. */
+const rootStrokeWidth = (strokeWidth) =>
+  strokeWidth ? `\n    strokeWidth={${strokeWidth}}` : "";
+
 function generateReactComponent(name, svg) {
-  const { viewBox, width, height, inner } = parseSvg(svg);
+  const { viewBox, width, height, inner, strokeWidth } = parseSvg(svg);
   const jsxInner = svgAttrsToJsx(inner);
 
   return `import * as React from 'react';
@@ -153,7 +179,7 @@ export const ${name}: React.FC<${name}Props> = ({
     height={size ?? height}
     viewBox="${viewBox}"
     fill="none"
-    xmlns="http://www.w3.org/2000/svg"
+    xmlns="http://www.w3.org/2000/svg"${rootStrokeWidth(strokeWidth)}
     {...props}
   >
     ${jsxInner}
@@ -165,7 +191,7 @@ ${name}.displayName = '${name}';
 }
 
 function generateReactNativeComponent(name, svg) {
-  const { viewBox, width, height, inner } = parseSvg(svg);
+  const { viewBox, width, height, inner, strokeWidth } = parseSvg(svg);
   const jsxInner = svgAttrsToJsx(inner);
   const { content: rnInner, usedTags } = svgTagsToRN(jsxInner);
 
@@ -191,7 +217,7 @@ export const ${name}: React.FC<${name}Props> = ({
     width={size ?? width}
     height={size ?? height}
     viewBox="${viewBox}"
-    fill="none"
+    fill="none"${rootStrokeWidth(strokeWidth)}
     {...props}
   >
     ${rnInner}

@@ -16,9 +16,10 @@ export const IconLoMic: React.FC<IconLoMicProps> = ({
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    strokeWidth={2}
     {...props}
   >
-    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19v3m7-12v2a7 7 0 0 1-14 0v-2"/><rect width="6" height="13" x="9" y="2" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" rx="3"/>
+    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="M12 19v3m7-12v2a7 7 0 0 1-14 0v-2"/><rect width="6" height="13" x="9" y="2" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" rx="3"/>
   </svg>
 );
 

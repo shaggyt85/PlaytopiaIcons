@@ -42,6 +42,18 @@ describe("React Icons", () => {
       expect(svg?.getAttribute("class")).toBe("custom-class");
     });
 
+    it("si tiene un grosor de trazo común, la prop strokeWidth lo cambia", () => {
+      const { container } = render(<Icon />);
+      const svg = container.querySelector("svg");
+      const defaultWidth = svg?.getAttribute("stroke-width");
+      if (!defaultWidth) return; // sin trazo o con grosores distintos por forma
+
+      // Las formas heredan el grosor del <svg>: ninguna lo fija por su cuenta.
+      expect(container.querySelector("svg [stroke-width]")).toBeNull();
+      const thicker = render(<Icon strokeWidth={2.4} />).container.querySelector("svg");
+      expect(thicker?.getAttribute("stroke-width")).toBe("2.4");
+    });
+
     it("snapshot", () => {
       const { container } = render(<Icon />);
       expect(container.innerHTML).toMatchSnapshot();

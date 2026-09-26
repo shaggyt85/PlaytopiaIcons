@@ -17,9 +17,10 @@ export const IconLoNetwork: React.FC<IconLoNetworkProps> = ({
     height={size ?? height}
     viewBox="0 0 24 24"
     fill="none"
+    strokeWidth={2}
     {...props}
   >
-    <Rect width="6" height="6" x="16" y="16" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" rx="1"/><Rect width="6" height="6" x="2" y="16" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" rx="1"/><Rect width="6" height="6" x="9" y="2" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" rx="1"/><Path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3m-7-4V8"/>
+    <Rect width="6" height="6" x="16" y="16" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" rx="1"/><Rect width="6" height="6" x="2" y="16" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" rx="1"/><Rect width="6" height="6" x="9" y="2" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" rx="1"/><Path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3m-7-4V8"/>
   </Svg>
 );
 

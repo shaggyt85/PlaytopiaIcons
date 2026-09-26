@@ -17,9 +17,10 @@ export const IconLoSearch: React.FC<IconLoSearchProps> = ({
     height={size ?? height}
     viewBox="0 0 24 24"
     fill="none"
+    strokeWidth={2}
     {...props}
   >
-    <Path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m21 21-4.34-4.34"/><Circle cx="11" cy="11" r="8" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"/>
+    <Path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="m21 21-4.34-4.34"/><Circle cx="11" cy="11" r="8" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
   </Svg>
 );
 

@@ -17,9 +17,10 @@ export const IconHome: React.FC<IconHomeProps> = ({
     height={size ?? height}
     viewBox="0 0 24 24"
     fill="none"
+    strokeWidth={2}
     {...props}
   >
-    <Path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m3 12 9-9 9 9M9 21v-6h6v6m6 0H3"/>
+    <Path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="m3 12 9-9 9 9M9 21v-6h6v6m6 0H3"/>
   </Svg>
 );
 

@@ -56,13 +56,14 @@ export default function App() {
 
 Todos los iconos aceptan las siguientes props:
 
-| Prop       | Tipo                    | Default | Descripción                                |
-| ---------- | ----------------------- | ------- | ------------------------------------------ |
-| `size`     | `number \| string`      | `24`    | Tamaño del icono (aplica a width y height) |
-| `width`    | `number \| string`      | `24`    | Ancho del icono                            |
-| `height`   | `number \| string`      | `24`    | Alto del icono                             |
-| `color`    | `string`                | `#222`  | Color del trazo (stroke)                   |
-| `...props` | `SVGProps` / `SvgProps` | —       | Cualquier prop nativa de SVG               |
+| Prop          | Tipo                    | Default        | Descripción                                 |
+| ------------- | ----------------------- | -------------- | ------------------------------------------- |
+| `size`        | `number \| string`      | `24`           | Tamaño del icono (aplica a width y height)  |
+| `width`       | `number \| string`      | `24`           | Ancho del icono                             |
+| `height`      | `number \| string`      | `24`           | Alto del icono                              |
+| `color`       | `string`                | `#222`         | Color del trazo (stroke)                    |
+| `strokeWidth` | `number`                | según el icono | Grosor del trazo (iconos de un solo grosor) |
+| `...props`    | `SVGProps` / `SvgProps` | —              | Cualquier prop nativa de SVG                |
 
 ---
 

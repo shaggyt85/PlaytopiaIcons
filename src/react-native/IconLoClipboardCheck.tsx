@@ -17,9 +17,10 @@ export const IconLoClipboardCheck: React.FC<IconLoClipboardCheckProps> = ({
     height={size ?? height}
     viewBox="0 0 24 24"
     fill="none"
+    strokeWidth={2}
     {...props}
   >
-    <Rect width="8" height="4" x="8" y="2" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" rx="1" ry="1"/><Path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><Path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m9 14 2 2 4-4"/>
+    <Rect width="8" height="4" x="8" y="2" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" rx="1" ry="1"/><Path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><Path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="m9 14 2 2 4-4"/>
   </Svg>
 );
 

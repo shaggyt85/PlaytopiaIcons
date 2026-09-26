@@ -17,9 +17,10 @@ export const IconOvalClose: React.FC<IconOvalCloseProps> = ({
     height={size ?? height}
     viewBox="0 0 14 14"
     fill="none"
+    strokeWidth={2}
     {...props}
   >
-    <Circle cx="7" cy="7" r="6" fill="#fff" stroke="currentColor" strokeWidth="2"/><Path stroke="currentColor" strokeWidth="2" d="m2.209 2.229 8.808 8.808m.774-8.808-9.147 9.147"/>
+    <Circle cx="7" cy="7" r="6" fill="#fff" stroke="currentColor"/><Path stroke="currentColor" d="m2.209 2.229 8.808 8.808m.774-8.808-9.147 9.147"/>
   </Svg>
 );
 

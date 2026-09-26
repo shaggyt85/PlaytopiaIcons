@@ -16,9 +16,10 @@ export const IconLoPlus: React.FC<IconLoPlusProps> = ({
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    strokeWidth={2}
     {...props}
   >
-    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-7-7v14"/>
+    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-7-7v14"/>
   </svg>
 );
 

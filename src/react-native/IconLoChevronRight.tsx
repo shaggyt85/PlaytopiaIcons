@@ -17,9 +17,10 @@ export const IconLoChevronRight: React.FC<IconLoChevronRightProps> = ({
     height={size ?? height}
     viewBox="0 0 24 24"
     fill="none"
+    strokeWidth={2}
     {...props}
   >
-    <Path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m9 18 6-6-6-6"/>
+    <Path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="m9 18 6-6-6-6"/>
   </Svg>
 );
 

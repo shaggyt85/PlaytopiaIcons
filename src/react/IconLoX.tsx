@@ -16,9 +16,10 @@ export const IconLoX: React.FC<IconLoXProps> = ({
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    strokeWidth={2}
     {...props}
   >
-    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 6 6 18M6 6l12 12"/>
+    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="M18 6 6 18M6 6l12 12"/>
   </svg>
 );
 
