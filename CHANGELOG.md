@@ -7,6 +7,14 @@ y este proyecto sigue [Semantic Versioning](https://semver.org/lang/es/).
 
 ---
 
+## [1.9.0] - 2026-09-26
+
+### Agregado
+
+- 2 iconos de biometría de Lucide (lucide-static 0.575.0) para Playtopia Pro: `IconLoScanFace` (`scan-face`) e `IconLoFingerprint` (`fingerprint-pattern`; `fingerprint` es su alias en Lucide).
+
+---
+
 ## [1.8.0] - 2026-09-26
 
 ### Agregado
