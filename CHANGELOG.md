@@ -12,6 +12,10 @@ y este proyecto sigue [Semantic Versioning](https://semver.org/lang/es/).
 ### Agregado
 
 - 2 iconos de biometría de Lucide (lucide-static 0.575.0) para Playtopia Pro: `IconLoScanFace` (`scan-face`) e `IconLoFingerprint` (`fingerprint-pattern`; `fingerprint` es su alias en Lucide).
+- Los 24 iconos del prototipo de Playtopia Pro que faltaban (lucide-static 0.575.0), para no tener que publicar una versión por cada pantalla: los 22 que usan sus pantallas y que la 1.8.0 no traía, más `IconLoChevronDown` e `IconLoChevronUp` para desplegables y secciones plegables.
+  - `IconLoActivity`, `IconLoArrowLeft`, `IconLoArrowRightLeft`, `IconLoBriefcase`, `IconLoBuilding2`, `IconLoCalendar`, `IconLoCamera`, `IconLoCompass`, `IconLoHistory`, `IconLoLibrary`, `IconLoMail`, `IconLoMap`, `IconLoPhone`, `IconLoSend`, `IconLoSquare`, `IconLoTrendingDown`, `IconLoUndo2`, `IconLoWaves`, `IconLoChevronDown` e `IconLoChevronUp`.
+  - Con el nombre de lucide-react que usa el prototipo, aunque en lucide-static sea un alias: `IconLoAlertTriangle` (`triangle-alert`), `IconLoCheckCircle2` (`circle-check`), `IconLoFileEdit` (`file-pen`) e `IconLoWand2` (`wand-sparkles`).
+  - Los que solo usan los componentes genéricos de shadcn del prototipo (`Circle`, `Minus`, `MoreHorizontal`, `GripVertical`, `PanelLeft`) no se añaden: la app nativa tiene los suyos.
 
 ---
 
