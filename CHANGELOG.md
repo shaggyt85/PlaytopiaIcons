@@ -7,6 +7,15 @@ y este proyecto sigue [Semantic Versioning](https://semver.org/lang/es/).
 
 ---
 
+## [1.10.0] - 2026-10-04
+
+### Agregado
+
+- Los 4 iconos de Lucide (lucide-static 0.575.0) que usan las pantallas del prototipo final de Playtopia Pro y que la 1.9.0 no traía: `IconLoBarChart2` (`chart-no-axes-column`; `bar-chart-2` es su nombre en lucide-react, el que usa el prototipo), `IconLoCalendarOff`, `IconLoCopy` e `IconLoLogOut`.
+  - Los que solo usan los componentes genéricos de shadcn del prototipo (`Circle`, `Minus`, `MoreHorizontal`, `GripVertical`, `PanelLeft`) siguen fuera, como en la 1.9.0.
+
+---
+
 ## [1.9.0] - 2026-09-26
 
 ### Agregado
