@@ -124,7 +124,7 @@ Para que la generación automática funcione correctamente, los archivos SVG deb
 | Color parametrizable              | Usar `stroke="currentColor"` o `fill="currentColor"` para que el color sea controlable por props    |
 | Sin namespaces de editores        | Sin `xmlns:xlink`, `xmlns:sodipodi`, `xmlns:inkscape`, etc. El script SVGO los elimina              |
 | Sin capas ocultas                 | Elimina capas con `display:none` o `visibility:hidden` antes de exportar                            |
-| Trazo limpio                      | Si el ícono usa trazos (stroke), deben estar con `stroke` explícito, no convertidos a path con fill |
+| Trazo limpio                      | Si el ícono usa trazos (stroke), deben estar con `stroke` explícito, no convertidos a path con fill. Puede ir en cada forma o en el `<svg>` raíz (así vienen los de Lucide): el generador reparte el de la raíz a cada forma. Un test comprueba que ninguna forma generada queda sin trazo ni relleno |
 
 ### Ejemplo de SVG correcto
 

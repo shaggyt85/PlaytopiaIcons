@@ -19,7 +19,7 @@ export const IconLoFrown: React.FC<IconLoFrownProps> = ({
     strokeWidth={2}
     {...props}
   >
-    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="M16 16s-1.5-2-4-2-4 2-4 2m1-7h.01M15 9h.01"/>
+    <circle stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" cx="12" cy="12" r="10"/><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="M16 16s-1.5-2-4-2-4 2-4 2m1-7h.01M15 9h.01"/>
   </svg>
 );
 

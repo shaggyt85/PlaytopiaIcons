@@ -12,7 +12,12 @@ y este proyecto sigue [Semantic Versioning](https://semver.org/lang/es/).
 ### Agregado
 
 - Los 4 iconos de Lucide (lucide-static 0.575.0) que usan las pantallas del prototipo final de Playtopia Pro y que la 1.9.0 no traía: `IconLoBarChart2` (`chart-no-axes-column`; `bar-chart-2` es su nombre en lucide-react, el que usa el prototipo), `IconLoCalendarOff`, `IconLoCopy` e `IconLoLogOut`.
-- `IconLoFrown` e `IconLoSmile` (lucide-static 0.575.0), para la valoración de la clase del prototipo («Floja», «Bien»; «Genial» es `IconLoFlame`, que ya estaba). Con el trazo en cada forma, como los demás: el generador ignora el `stroke` de la raíz que trae Lucide.
+- `IconLoFrown` e `IconLoSmile` (lucide-static 0.575.0), para la valoración de la clase del prototipo («Floja», «Bien»; «Genial» es `IconLoFlame`, que ya estaba), con sus SVG tal como vienen de Lucide.
+
+### Corregido
+
+- El generador perdía el trazo de los SVG que lo traen en el `<svg>` raíz, como los de Lucide: la raíz del componente va con `fill="none"` y sin trazo, así que el icono salía vacío. Ahora lo reparte a cada forma que no tenga el suyo (`stroke`, `stroke-width`, `stroke-linecap`, `stroke-linejoin`), como ya hacía con el relleno. Ningún icono publicado lo tenía en la raíz: no cambia ninguno.
+- Un test de integridad comprueba que cada forma de cada componente generado, React y React Native, tiene trazo o relleno.
   - Los que solo usan los componentes genéricos de shadcn del prototipo (`Circle`, `Minus`, `MoreHorizontal`, `GripVertical`, `PanelLeft`) siguen fuera, como en la 1.9.0.
 
 ---

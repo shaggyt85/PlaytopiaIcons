@@ -40,6 +40,39 @@ function normalizeFillInheritance(inner, rootFill) {
 }
 
 /**
+ * Normaliza el inner SVG para el trazo, como `normalizeFillInheritance` para el
+ * relleno: si el root trae `stroke` (así vienen los SVG de Lucide), cada shape
+ * sin `stroke` propio lo recibe, con el `stroke-width`, `stroke-linecap` y
+ * `stroke-linejoin` del root que no tenga ya. Sin esto el trazo se perdía —el
+ * generador pone el root con fill="none" y sin stroke— y el icono salía vacío.
+ */
+const STROKE_ATTRS = ["stroke", "stroke-width", "stroke-linecap", "stroke-linejoin"];
+
+function normalizeStrokeInheritance(inner, rootAttrs) {
+  const rootStroke = rootAttrs.match(/\sstroke="([^"]*)"/)?.[1];
+  if (!rootStroke || rootStroke === "none") return inner;
+  const inherited = STROKE_ATTRS.map((name) => [
+    name,
+    rootAttrs.match(new RegExp(`\\s${name}="([^"]*)"`))?.[1],
+  ]).filter(([, value]) => value !== undefined);
+
+  const SHAPES = "path|circle|rect|ellipse|polygon|polyline|line";
+  return inner.replace(
+    new RegExp(`<(${SHAPES})(\\s[^/=>\\s][^>]*)?(\\s*/?>)`, "g"),
+    (match, tag, attrsStr = "", close) => {
+      if (/\sstroke="/.test(attrsStr)) return match;
+      const missing = inherited
+        .filter(([name]) => !new RegExp(`\\s${name}="`).test(attrsStr))
+        .map(([name, value]) => ` ${name}="${value}"`)
+        .join("");
+      // Delante de los suyos, como `normalizeFillInheritance`: detrás
+      // quedarían al otro lado de la `/` de una etiqueta que se cierra sola.
+      return `<${tag}${missing}${attrsStr}${close}`;
+    },
+  );
+}
+
+/**
  * Si todas las formas con trazo comparten el mismo stroke-width, lo quita de
  * cada una y lo devuelve para ponerlo en el <svg> raíz como valor por defecto:
  * así las formas lo heredan y la prop `strokeWidth` del icono lo sustituye.
@@ -79,11 +112,13 @@ function parseSvg(svgContent) {
   const rootFillMatch = attrs.match(/fill="([^"]*)"/);
   const rootFill = rootFillMatch ? rootFillMatch[1] : null;
 
-  // Extraer contenido interior y normalizar fill heredado del root
+  // Extraer contenido interior y normalizar lo heredado del root
   const innerMatch = svgContent.match(/<svg[^>]*>([\s\S]*)<\/svg>/);
   const rawInner = innerMatch ? innerMatch[1].trim() : "";
+  // Primero el relleno y luego el trazo: una forma hereda los dos si no
+  // tiene los suyos, como en SVG.
   const { inner, strokeWidth } = hoistStrokeWidth(
-    normalizeFillInheritance(rawInner, rootFill),
+    normalizeStrokeInheritance(normalizeFillInheritance(rawInner, rootFill), attrs),
   );
 
   return { viewBox, width, height, inner, strokeWidth };
