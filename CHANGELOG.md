@@ -7,6 +7,17 @@ y este proyecto sigue [Semantic Versioning](https://semver.org/lang/es/).
 
 ---
 
+## [1.11.0] - 2026-10-14
+
+### Agregado
+
+- Los 48 iconos de Lucide (lucide-static 0.575.0) que usan las pantallas del prototipo de la app de alumnos (Playtopia Evolution) y que la 1.10.0 no traía, con el nombre de lucide-react que usa el prototipo:
+  - `IconLoBan`, `IconLoBanknote`, `IconLoBookmark`, `IconLoBookmarkCheck`, `IconLoCake`, `IconLoCalendarClock`, `IconLoCalendarPlus`, `IconLoCircleDot`, `IconLoCoins`, `IconLoCreditCard`, `IconLoEye`, `IconLoEyeOff`, `IconLoGauge`, `IconLoGift`, `IconLoGraduationCap`, `IconLoImageOff`, `IconLoInfo`, `IconLoLayoutGrid`, `IconLoLifeBuoy`, `IconLoMaximize2`, `IconLoMedal`, `IconLoMegaphone`, `IconLoMenu`, `IconLoMinus`, `IconLoMoon`, `IconLoNewspaper`, `IconLoPin`, `IconLoReceipt`, `IconLoRefreshCw`, `IconLoRepeat`, `IconLoRotateCcw`, `IconLoSchool`, `IconLoScrollText`, `IconLoSettings2`, `IconLoShare2`, `IconLoShieldAlert`, `IconLoShieldCheck`, `IconLoSignal`, `IconLoSun`, `IconLoSwords`, `IconLoThumbsUp`, `IconLoTicket`, `IconLoUserPlus` e `IconLoWallet`.
+  - Los que en lucide-static son un alias: `IconLoAlertCircle` (`circle-alert`), `IconLoBarChart3` (`chart-column`), `IconLoFileCheck2` (`file-check-corner`) e `IconLoXCircle` (`circle-x`).
+  - Fuera queda `Instagram`, que el prototipo usa en Contacto: es un logo de marca de Meta y Lucide lo da por obsoleto.
+- `npm run add:lucide -- <Nombre> …` (`scripts/add-lucide-icons.mjs`): copia los SVG de Lucide a partir de sus nombres de lucide-react, resolviendo los alias, que hasta ahora se buscaban a mano en cada versión. La regla vive en `scripts/lib/lucide.mjs`, con sus tests.
+- `lucide-static` 0.575.0 como `devDependency` fijada: la versión de la que salen los `icon-lo-*` queda escrita en el repositorio.
+
 ## [1.10.0] - 2026-10-04
 
 ### Agregado

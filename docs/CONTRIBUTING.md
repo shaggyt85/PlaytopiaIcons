@@ -71,6 +71,16 @@ Esto genera automáticamente:
 
 > **NUNCA edites los archivos en `src/react/` y `src/react-native/` manualmente.** Son generados automáticamente. Los cambios manuales se perderán en la próxima ejecución de `npm run generate`.
 
+### Iconos de Lucide (los de los prototipos de Lovable)
+
+Los prototipos de Lovable usan los nombres de **lucide-react** (`AlertCircle`, `XCircle`…), y varios son alias en lucide-static (`circle-alert`, `circle-x`). No se copian a mano: se pasan los nombres a
+
+```bash
+npm run add:lucide -- AlertCircle CreditCard XCircle
+```
+
+que copia cada SVG desde `lucide-static` (la versión fijada en `devDependencies`, la de `THIRD_PARTY_NOTICES.md`) a `src/svg/icon-lo-<nombre>.svg`, siempre con el nombre de lucide-react aunque sea un alias, dice cuáles son alias y cuáles ya estaban, y termina con error si alguno no existe en Lucide. Después, `npm run build` y `npm test`, como cualquier icono. Si se sube la versión de `lucide-static`, se actualiza también el aviso de `THIRD_PARTY_NOTICES.md`.
+
 ---
 
 ## 2b. Añadir un logo de marca (brand asset)
