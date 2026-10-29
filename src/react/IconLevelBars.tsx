@@ -1,0 +1,25 @@
+import * as React from 'react';
+
+export interface IconLevelBarsProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+export const IconLevelBars: React.FC<IconLevelBarsProps> = ({
+  size,
+  width = 24,
+  height = 24,
+  ...props
+}) => (
+  <svg
+    width={size ?? width}
+    height={size ?? height}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <rect width="3" height="5" x="3" y="15" fill="currentColor" rx="1"/><rect width="3" height="8" x="8" y="12" fill="currentColor" rx="1"/><rect width="3" height="12" x="13" y="8" fill="currentColor" rx="1"/><rect width="3" height="16" x="18" y="4" fill="currentColor" rx="1"/>
+  </svg>
+);
+
+IconLevelBars.displayName = 'IconLevelBars';

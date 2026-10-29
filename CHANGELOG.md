@@ -7,6 +7,15 @@ y este proyecto sigue [Semantic Versioning](https://semver.org/lang/es/).
 
 ---
 
+## [1.12.0] - 2026-10-29
+
+### Agregado
+
+- Los tres iconos de la ficha de una clase del prototipo de la app de alumnos (Playtopia Evolution, `DetailSections.tsx`), que el prototipo dibujaba a mano porque Lucide no los tiene:
+  - `IconWhistle`: el silbato del título «Esta sesión» (trazo).
+  - `IconCourtTop`: la pista vista desde arriba, la de la cajita de la pista (trazo). No sustituye a `IconCourt`, que es otro dibujo (relleno y en perspectiva).
+  - `IconLevelBars`: las cuatro barras de nivel de «Nivel del grupo» (relleno).
+
 ## [1.11.0] - 2026-10-14
 
 ### Agregado
